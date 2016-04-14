@@ -1,5 +1,5 @@
-# UUID          Group Name
-6ddfecad023c6f4fa3ac8c4d2583c502ea675a73 	Non-Interactive Users
-69ce2839cc38eba76d3294adddecf08236e4e4d6       	trove-distgit-core
-df2ac04e829407750edcac39486c1dfb2c230ac5        	trove-distgit-ptl
-global:Registered-Users		Registered Users
+# UUID                                  	Group Name
+#
+69ce2839cc38eba76d3294adddecf08236e4e4d6	trove-distgit-core
+df2ac04e829407750edcac39486c1dfb2c230ac5	openstack/trove-distgit-ptl
+global:Registered-Users                 	Registered Users
