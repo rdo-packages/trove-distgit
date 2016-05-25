@@ -6,7 +6,7 @@
 
 Name:             openstack-%{service}
 Epoch:            1
-Version:          5.0.0
+Version:          5.0.1
 Release:          1%{?milestone}%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
@@ -21,9 +21,6 @@ Source10:         %{name}-api.service
 Source11:         %{name}-taskmanager.service
 Source12:         %{name}-conductor.service
 Source13:         %{name}-guestagent.service
-
-Patch0001:        0001-Fixes-migrations-for-MySQL-5.6.-and-MariaDB-10.1.patch
-
 
 BuildArch:        noarch
 BuildRequires:    python2-devel
@@ -366,6 +363,10 @@ exit 0
 %endif
 
 %changelog
+* Wed May 25 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:5.0.1-1
+- Update to 5.0.1
+- Drop migration fix for MySQL 5.6/MariaDB 10.1 (merged upstream)
+
 * Thu Apr 07 2016 Alan Pevec <apevec AT redhat.com> 5.0.0-1
 - Update to 5.0.0 GA
 - update dependencies
