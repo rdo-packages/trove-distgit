@@ -19,6 +19,24 @@
     },
     {
       "key": {
+        "uuid": "1a106d94_8f12b860",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2016-08-24T08:32:25Z",
+      "side": 1,
+      "message": "And this is a good example where RDO as 3rd party CI upstream would really help: review was opened back in Feb and merged only last week.",
+      "parentUuid": "1a106d94_af2174b6",
+      "revId": "8309a3e95adc77b0daec029426f5fcb27db3d314",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a106d94_8f6d9807",
         "filename": "openstack-trove.spec",
         "patchSetId": 1
