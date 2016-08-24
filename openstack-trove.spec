@@ -120,6 +120,7 @@ Requires:         python-netaddr
 Requires:         python-lxml
 Requires:         python-six >= 1.9.0
 Requires:         python-stevedore >= 1.5.0
+Requires:         python-xmltodict >= 0.10.1
 
 Requires:         python-webob >= 1.2.3
 Requires:         python-migrate >= 0.9.6
