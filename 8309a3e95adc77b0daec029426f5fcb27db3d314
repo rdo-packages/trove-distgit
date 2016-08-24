@@ -37,6 +37,24 @@
     },
     {
       "key": {
+        "uuid": "1a106d94_02b97f2e",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-08-24T14:41:35Z",
+      "side": 1,
+      "message": "The (current) strategy is to do third party CI with DLRN. DLRN will catch issues with build requirements missing from the spec, not runtime dependencies.\nThis didn\u0027t generate a ftbfs until Emilien added a Required package to the spec that we did not carry.\n\nThis would\u0027ve been caught through dlrn/weirdo integration jobs, though, which is much more resource intensive.",
+      "parentUuid": "1a106d94_8f12b860",
+      "revId": "8309a3e95adc77b0daec029426f5fcb27db3d314",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "1a106d94_8f6d9807",
         "filename": "openstack-trove.spec",
         "patchSetId": 1
