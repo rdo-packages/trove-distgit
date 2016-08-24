@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a106d94_8f6d9807",
+        "filename": "openstack-trove.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 123,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-08-24T03:10:28Z",
+      "side": 1,
+      "message": "As far as I can tell this requirement is not met.\nCentOS carries 0.9.0 (only through EPEL, even) and we do not have it in RDO at all.\n\nNothing in CBS either: http://cbs.centos.org/koji/packageinfo?packageID\u003d3086",
+      "revId": "8309a3e95adc77b0daec029426f5fcb27db3d314",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
