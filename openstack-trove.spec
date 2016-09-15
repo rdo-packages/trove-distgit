@@ -6,8 +6,8 @@
 
 Name:             openstack-%{service}
 Epoch:            1
-Version:          5.0.1
-Release:          1%{?milestone}%{?dist}
+Version:          5.1.1
+Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
 License:          ASL 2.0
@@ -363,6 +363,9 @@ exit 0
 %endif
 
 %changelog
+* Thu Sep 15 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:5.1.1-1
+- Update to 5.1.1
+
 * Wed May 25 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:5.0.1-1
 - Update to 5.0.1
 - Drop migration fix for MySQL 5.6/MariaDB 10.1 (merged upstream)
