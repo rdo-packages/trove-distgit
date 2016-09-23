@@ -1,4 +1,4 @@
-%global milestone .0rc1
+%global milestone .0rc2
 %global release_name mitaka
 %global service trove
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -8,7 +8,7 @@
 Name:             openstack-%{service}
 Epoch:            1
 Version:          6.0.0
-Release:          0.2%{?milestone}%{?dist}
+Release:          0.3%{?milestone}%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
 License:          ASL 2.0
@@ -16,7 +16,7 @@ URL:              https://wiki.openstack.org/wiki/Trove
 Source0:          http://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
 #
-# patches_base=6.0.0.0rc1
+# patches_base=6.0.0.0rc2
 #
 
 Source1:          %{service}.logrotate
@@ -369,6 +369,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Sep 23 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:6.0.0-0.3.0rc2
+- Update to 6.0.0.0rc2
+
 * Wed Sep 21 2016 Alfredo Moralejo <amoralej@redhat.com> 1:6.0.0-0.2.0rc1
 - Update to 6.0.0.0rc1
 
