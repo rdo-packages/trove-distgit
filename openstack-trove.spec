@@ -207,6 +207,9 @@ rm -rf {test-,}requirements.txt
 %install
 %{__python2} setup.py install -O1 --skip-build --root %{buildroot}
 
+# Create fake egg-info for the tempest plugin
+%py2_entrypoint %{service} %{service}
+
 # docs generation requires everything to be installed first
 export PYTHONPATH="$( pwd ):$PYTHONPATH"
 
@@ -356,6 +359,7 @@ exit 0
 %files -n python-%{service}-tests
 %license LICENSE
 %{python2_sitelib}/%{service}/tests
+%{python2_sitelib}/%{service}_tests.egg-info
 
 %if 0%{?with_doc}
 %files doc
