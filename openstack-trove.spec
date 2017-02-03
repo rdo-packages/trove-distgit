@@ -114,15 +114,17 @@ Requires:         MySQL-python
 
 Requires:         python-kombu
 
+Requires:         python-crypto
+Requires:         python-enum34
 Requires:         python-eventlet
 Requires:         python-iso8601
 Requires:         python-netaddr
 Requires:         python-lxml
 Requires:         python-six >= 1.9.0
-Requires:         python-stevedore >= 1.5.0
+Requires:         python-stevedore >= 1.17.1
 Requires:         python-xmltodict >= 0.10.1
 
-Requires:         python-webob >= 1.2.3
+Requires:         python-webob >= 1.6.0
 Requires:         python-migrate >= 0.9.6
 
 Requires:         python-sqlalchemy >= 1.0.10
@@ -133,26 +135,28 @@ Requires:         python-routes
 Requires:         python-troveclient
 Requires:         python-cinderclient >= 1.6.0
 Requires:         python-designateclient >= 2.0.0
-Requires:         python-heatclient >= 1.0.0
-Requires:         python-keystoneclient >= 1:2.3.1
-Requires:         python-keystonemiddleware >= 4.3.0
-Requires:         python-neutronclient >= 4.1.1
-Requires:         python-novaclient >= 3.3.0
-Requires:         python-swiftclient >= 3.0.0
+Requires:         python-glanceclient >= 1:2.5.0
+Requires:         python-heatclient >= 1.6.1
+Requires:         python-keystoneclient >= 1:3.8.0
+Requires:         python-keystonemiddleware >= 4.12.0
+Requires:         python-neutronclient >= 5.1.0
+Requires:         python-novaclient >= 1:6.0.0
+Requires:         python-swiftclient >= 3.2.0
 
-Requires:         python-oslo-concurrency >= 3.6.0
-Requires:         python-oslo-config >= 2:3.9.0
-Requires:         python-oslo-context >= 0.2.0
-Requires:         python-oslo-db >= 4.6.0
+Requires:         python-oslo-concurrency >= 3.8.0
+Requires:         python-oslo-config >= 2:3.14.0
+Requires:         python-oslo-context >= 2.9.0
+Requires:         python-oslo-db >= 4.15.0
 Requires:         python-oslo-i18n >= 3.4.0
-Requires:         python-oslo-log >= 3.2.0
-Requires:         python-oslo-messaging >= 4.5.0
+Requires:         python-oslo-log >= 3.11.0
+Requires:         python-oslo-messaging >= 5.14.0
 Requires:         python-oslo-middleware >= 3.7.0
+Requires:         python-oslo-policy >= 1.17.0
 Requires:         python-oslo-serialization >= 2.4.0
-Requires:         python-oslo-service >= 1.7.0
-Requires:         python-oslo-utils >= 3.7.0
+Requires:         python-oslo-service >= 1.10.0
+Requires:         python-oslo-utils >= 3.18.0
 
-Requires:         python-osprofiler >= 1.2.0
+Requires:         python-osprofiler >= 1.4.0
 Requires:         python-jsonschema
 Requires:         python-babel
 Requires:         python-jinja2
