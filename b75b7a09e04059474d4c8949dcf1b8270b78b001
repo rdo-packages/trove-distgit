@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baada198_82355b48",
+        "filename": "openstack-trove.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2017-02-03T11:15:53Z",
+      "side": 1,
+      "message": "Even though it\u0027s in requirements.txt, we try not to have this in the individual service Requires:, and just rely on PyMySQL being an oslo.db dependency.",
+      "range": {
+        "startLine": 117,
+        "startChar": 18,
+        "endLine": 117,
+        "endChar": 32
+      },
+      "revId": "b75b7a09e04059474d4c8949dcf1b8270b78b001",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
