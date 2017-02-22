@@ -1,4 +1,3 @@
-%global milestone .0rc2
 %global release_name mitaka
 %global service trove
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -8,16 +7,12 @@
 Name:             openstack-%{service}
 Epoch:            1
 Version:          7.0.0
-Release:          0.2%{?milestone}%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
 License:          ASL 2.0
 URL:              https://wiki.openstack.org/wiki/Trove
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
-
-#
-# patches_base=7.0.0.0rc2
-#
 
 Source1:          %{service}.logrotate
 Source2:          guest_info
@@ -377,6 +372,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Feb 22 2017 Alfredo Moralejo <amoralej@redhat.com> 1:7.0.0-1
+- Update to 7.0.0
+
 * Fri Feb 17 2017 Alfredo Moralejo <amoralej@redhat.com> 1:7.0.0-0.2.0rc2
 - Update to 7.0.0.0rc2
 
