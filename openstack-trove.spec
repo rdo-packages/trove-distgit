@@ -6,7 +6,7 @@
 
 Name:             openstack-%{service}
 Epoch:            1
-Version:          5.1.1
+Version:          5.1.2
 Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
@@ -363,6 +363,9 @@ exit 0
 %endif
 
 %changelog
+* Tue May 23 2017 Alfredo Moralejo <amoralej@redhat.com> 1:5.1.2-1
+- Update to 5.1.2
+
 * Thu Sep 15 2016 Haikel Guemar <hguemar@fedoraproject.org> 1:5.1.1-1
 - Update to 5.1.1
 
