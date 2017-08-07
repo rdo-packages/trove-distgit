@@ -215,7 +215,6 @@ rm -rf {test-,}requirements.txt
 %py2_entrypoint %{service} %{service}
 
 # docs generation requires everything to be installed first
-export PYTHONPATH="$( pwd ):$PYTHONPATH"
 
 %if 0%{?with_doc}
 pushd doc
