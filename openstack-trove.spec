@@ -45,9 +45,7 @@ Summary:          Components common to all OpenStack %{service} services
 
 Requires:         python-%{service} = %{epoch}:%{version}-%{release}
 
-Requires(post):   systemd
-Requires(preun):  systemd
-Requires(postun): systemd
+%{?systemd_requires}
 BuildRequires:    systemd
 
 Requires(pre):    shadow-utils
