@@ -30,6 +30,7 @@ BuildRequires:    python-d2to1
 BuildRequires:    python-sphinx
 BuildRequires:    crudini
 BuildRequires:    intltool
+BuildRequires:    openstack-macros
 
 Requires:         %{name}-api = %{epoch}:%{version}-%{release}
 Requires:         %{name}-taskmanager = %{epoch}:%{version}-%{release}
@@ -203,7 +204,7 @@ done
 
 # Remove the requirements file so that pbr hooks don't add it
 # to distutils requires_dist config
-rm -rf {test-,}requirements.txt
+%py_req_cleanup
 
 %build
 %{__python2} setup.py build
