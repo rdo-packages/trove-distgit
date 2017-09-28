@@ -2,6 +2,8 @@
 %global service trove
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 
+%global common_desc OpenStack DBaaS (codename %{service}) provisioning service.
+
 %global with_doc 0
 
 Name:             openstack-%{service}
@@ -38,7 +40,7 @@ Requires:         %{name}-conductor = %{epoch}:%{version}-%{release}
 
 
 %description
-OpenStack DBaaS (codename %{service}) provisioning service.
+%{common_desc}
 
 %package common
 Summary:          Components common to all OpenStack %{service} services
@@ -52,7 +54,7 @@ Requires(pre):    shadow-utils
 Requires:         python-pbr >= 2.0.0
 
 %description common
-OpenStack DBaaS (codename %{service}) provisioning service.
+%{common_desc}
 
 This package contains scripts, config and dependencies shared
 between all the OpenStack %{service} services.
@@ -63,7 +65,7 @@ Summary:          OpenStack %{service} API service
 Requires:         %{name}-common = %{epoch}:%{version}-%{release}
 
 %description api
-OpenStack DBaaS (codename %{service}) provisioning service.
+%{common_desc}
 
 This package contains the %{service} interface daemon.
 
@@ -73,7 +75,7 @@ Summary:          OpenStack %{service} taskmanager service
 Requires:         %{name}-common = %{epoch}:%{version}-%{release}
 
 %description taskmanager
-OpenStack DBaaS (codename %{service}) provisioning service.
+%{common_desc}
 
 This package contains the %{service} taskmanager service.
 
@@ -83,7 +85,7 @@ Summary:          OpenStack %{service} conductor service
 Requires:         %{name}-common = %{epoch}:%{version}-%{release}
 
 %description conductor
-OpenStack DBaaS (codename %{service}) provisioning service.
+%{common_desc}
 
 This package contains the %{service} conductor service.
 
@@ -100,7 +102,7 @@ Requires:         python-netifaces
 Requires:         %{name}-common = %{epoch}:%{version}-%{release}
 
 %description guestagent
-OpenStack DBaaS (codename %{service}) provisioning service.
+%{common_desc}
 
 This package contains the %{service} guest agent service
 that runs within the database VM instance.
@@ -164,7 +166,7 @@ Requires:         python-httplib2
 Requires:         python-passlib
 
 %description -n   python-%{service}
-OpenStack DBaaS (codename %{service}) provisioning service.
+%{common_desc}
 
 This package contains the %{service} python library.
 
@@ -173,6 +175,8 @@ Summary:        Trove tests
 Requires:       python-%{service} = %{epoch}:%{version}-%{release}
 
 %description -n python-%{service}-tests
+%{common_desc}
+
 This package contains the Trove test files
 
 %if 0%{?with_doc}
@@ -181,7 +185,7 @@ Summary:          Documentation for OpenStack %{service}
 
 
 %description      doc
-OpenStack DBaaS (codename %{service}) provisioning service.
+%{common_desc}
 
 This package contains documentation files for %{service}.
 %endif
