@@ -370,3 +370,4 @@ exit 0
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/trove/commit/?id=808182b56ca4def3652215c85f616f8b8c2a0a72
