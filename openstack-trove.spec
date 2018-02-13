@@ -113,57 +113,57 @@ Summary:          Python libraries for %{service}
 
 Requires:         MySQL-python
 
-Requires:         python-kombu
+Requires:         python2-kombu
 
-Requires:         python-crypto
+Requires:         python2-crypto
 Requires:         python-enum34
-Requires:         python-eventlet
-Requires:         python-iso8601
-Requires:         python-netaddr
+Requires:         python2-eventlet
+Requires:         python2-iso8601
+Requires:         python2-netaddr
 Requires:         python-lxml
-Requires:         python-six >= 1.9.0
-Requires:         python-stevedore >= 1.20.0
-Requires:         python-xmltodict >= 0.10.1
+Requires:         python2-six >= 1.10.0
+Requires:         python2-stevedore >= 1.20.0
+Requires:         python2-xmltodict >= 0.10.1
 
 Requires:         python-webob >= 1.7.1
 Requires:         python-migrate >= 0.11.0
 
-Requires:         python-sqlalchemy >= 1.0.10
+Requires:         python2-sqlalchemy >= 1.0.10
 Requires:         python-paste
 Requires:         python-paste-deploy
-Requires:         python-routes
+Requires:         python2-routes
 
-Requires:         python-troveclient
-Requires:         python-cinderclient >= 2.1.0
-Requires:         python-designateclient >= 1.5.0
-Requires:         python-glanceclient >= 1:2.7.0
-Requires:         python-heatclient >= 1.6.1
-Requires:         python-keystoneclient >= 1:3.8.0
-Requires:         python-keystonemiddleware >= 4.12.0
-Requires:         python-neutronclient >= 6.3.0
-Requires:         python-novaclient >= 1:9.0.0
-Requires:         python-swiftclient >= 3.2.0
+Requires:         python2-troveclient
+Requires:         python2-cinderclient >= 3.3.0
+Requires:         python2-designateclient >= 2.7.0
+Requires:         python2-glanceclient >= 1:2.8.0
+Requires:         python2-heatclient >= 1.10.0
+Requires:         python2-keystoneclient >= 1:3.8.0
+Requires:         python2-keystonemiddleware >= 4.17.0
+Requires:         python2-neutronclient >= 6.3.0
+Requires:         python2-novaclient >= 1:9.1.0
+Requires:         python2-swiftclient >= 3.2.0
 
-Requires:         python-oslo-concurrency >= 3.8.0
-Requires:         python-oslo-config >= 2:4.0.0
-Requires:         python-oslo-context >= 2.14.0
-Requires:         python-oslo-db >= 4.24.0
-Requires:         python-oslo-i18n >= 2.1.0
-Requires:         python-oslo-log >= 3.22.0
-Requires:         python-oslo-messaging >= 5.24.2
-Requires:         python-oslo-middleware >= 3.27.0
-Requires:         python-oslo-policy >= 1.23.0
-Requires:         python-oslo-serialization >= 1.10.0
-Requires:         python-oslo-service >= 1.10.0
-Requires:         python-oslo-utils >= 3.20.0
+Requires:         python2-oslo-concurrency >= 3.25.0
+Requires:         python2-oslo-config >= 2:5.1.0
+Requires:         python2-oslo-context >= 2.19.2
+Requires:         python2-oslo-db >= 4.27.0
+Requires:         python2-oslo-i18n >= 3.15.3
+Requires:         python2-oslo-log >= 3.36.0
+Requires:         python2-oslo-messaging >= 5.29.0
+Requires:         python2-oslo-middleware >= 3.31.0
+Requires:         python2-oslo-policy >= 1.30.0
+Requires:         python2-oslo-serialization >= 2.18.0
+Requires:         python2-oslo-service >= 1.24.0
+Requires:         python2-oslo-utils >= 3.33.0
 
-Requires:         python-osprofiler >= 1.4.0
-Requires:         python-jsonschema
-Requires:         python-babel
-Requires:         python-jinja2
+Requires:         python2-osprofiler >= 1.4.0
+Requires:         python2-jsonschema
+Requires:         python2-babel
+Requires:         python2-jinja2
 
 Requires:         python-httplib2
-Requires:         python-passlib
+Requires:         python2-passlib
 
 %description -n   python-%{service}
 %{common_desc}
