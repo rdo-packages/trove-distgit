@@ -192,6 +192,8 @@ This package contains documentation files for %{service}.
 
 %prep
 %autosetup -n %{service}-%{upstream_version} -S git
+# FIXME(ykarel) Remove once https://review.openstack.org/#/c/548452/ is merged
+sed -i '/policy.json/d' setup.cfg
 
 # Avoid non-executable-script rpmlint while maintaining timestamps
 find %{service} -name \*.py |
@@ -246,7 +248,9 @@ install -p -D -m 640 etc/%{service}/%{service}.conf.sample %{buildroot}%{_syscon
 # Use crudini to set some configuration keys
 crudini --set %{buildroot}%{_sysconfdir}/%{service}/%{service}.conf database connection mysql://trove:trove@localhost/trove
 crudini --set %{buildroot}%{_sysconfdir}/%{service}/%{service}.conf DEFAULT log_file %{_localstatedir}/log/%{service}/%{service}.log
-install -p -D -m 644 etc/%{service}/api-paste.ini %{buildroot}%{_sysconfdir}/%{service}/api-paste.ini
+mv %{buildroot}%{_prefix}/etc/%{service}/api-paste.ini %{buildroot}%{_sysconfdir}/%{service}/api-paste.ini
+# Remove duplicate config files under /usr/etc/trove
+rmdir %{buildroot}%{_prefix}/etc/%{service}
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
 install -p -D -m 640 etc/%{service}/trove-taskmanager.conf.sample %{buildroot}%{_sysconfdir}/%{service}/trove-taskmanager.conf
 install -p -D -m 640 etc/%{service}/trove-conductor.conf.sample %{buildroot}%{_sysconfdir}/%{service}/trove-conductor.conf
