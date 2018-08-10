@@ -97,7 +97,6 @@ Requires:         pexpect
 %else
 Requires:         python-pexpect
 %endif
-Requires:         python-netifaces
 
 Requires:         %{name}-common = %{epoch}:%{version}-%{release}
 
@@ -115,7 +114,7 @@ Requires:         MySQL-python
 
 Requires:         python2-kombu
 
-Requires:         python2-crypto
+Requires:         python2-cryptography >= 2.1.4
 Requires:         python-enum34
 Requires:         python2-eventlet
 Requires:         python2-iso8601
@@ -128,7 +127,7 @@ Requires:         python2-xmltodict >= 0.10.1
 Requires:         python-webob >= 1.7.1
 Requires:         python-migrate >= 0.11.0
 
-Requires:         python2-sqlalchemy >= 1.0.10
+Requires:         python2-sqlalchemy >= 1.2.0
 Requires:         python-paste
 Requires:         python-paste-deploy
 Requires:         python2-routes
@@ -140,12 +139,12 @@ Requires:         python2-glanceclient >= 1:2.8.0
 Requires:         python2-heatclient >= 1.10.0
 Requires:         python2-keystoneclient >= 1:3.8.0
 Requires:         python2-keystonemiddleware >= 4.17.0
-Requires:         python2-neutronclient >= 6.3.0
+Requires:         python2-neutronclient >= 6.7.0
 Requires:         python2-novaclient >= 1:9.1.0
 Requires:         python2-swiftclient >= 3.2.0
 
-Requires:         python2-oslo-concurrency >= 3.25.0
-Requires:         python2-oslo-config >= 2:5.1.0
+Requires:         python2-oslo-concurrency >= 3.26.0
+Requires:         python2-oslo-config >= 2:5.2.0
 Requires:         python2-oslo-context >= 2.19.2
 Requires:         python2-oslo-db >= 4.27.0
 Requires:         python2-oslo-i18n >= 3.15.3
