@@ -22,6 +22,30 @@
       "revId": "3bf394fefcbbf6e3ac4a472854b793d0c9c0d921",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9abe1de1_d8a3974e",
+        "filename": "openstack-trove.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 117,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-08-13T06:54:33Z",
+      "side": 1,
+      "message": "ack",
+      "parentUuid": "9abe1de1_3874d39a",
+      "range": {
+        "startLine": 117,
+        "startChar": 18,
+        "endLine": 117,
+        "endChar": 35
+      },
+      "revId": "3bf394fefcbbf6e3ac4a472854b793d0c9c0d921",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
