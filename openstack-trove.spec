@@ -1,3 +1,14 @@
+# Macros for py2/py3 compatibility
+%if 0%{?fedora} || 0%{?rhel} > 7
+%global pyver %{python3_pkgversion}
+%else
+%global pyver 2
+%endif
+%global pyver_bin python%{pyver}
+%global pyver_sitelib %python%{pyver}_sitelib
+%global pyver_install %py%{pyver}_install
+%global pyver_build %py%{pyver}_build
+# End of macros for py2/py3 compatibility
 %global release_name mitaka
 %global service trove
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -25,14 +36,20 @@ Source12:         %{name}-conductor.service
 Source13:         %{name}-guestagent.service
 
 BuildArch:        noarch
-BuildRequires:    python2-devel
-BuildRequires:    python-setuptools
-BuildRequires:    python-pbr >= 2.0.0
-BuildRequires:    python-d2to1
-BuildRequires:    python-sphinx
+BuildRequires:    python%{pyver}-devel
+BuildRequires:    python%{pyver}-setuptools
+BuildRequires:    python%{pyver}-pbr >= 2.0.0
+BuildRequires:    python%{pyver}-sphinx
 BuildRequires:    crudini
 BuildRequires:    intltool
 BuildRequires:    openstack-macros
+
+# Handle python2 exception
+%if %{pyver} == 2
+BuildRequires:    python-d2to1
+%else
+BuildRequires:    python%{pyver}-d2to1
+%endif
 
 Requires:         %{name}-api = %{epoch}:%{version}-%{release}
 Requires:         %{name}-taskmanager = %{epoch}:%{version}-%{release}
@@ -45,13 +62,13 @@ Requires:         %{name}-conductor = %{epoch}:%{version}-%{release}
 %package common
 Summary:          Components common to all OpenStack %{service} services
 
-Requires:         python-%{service} = %{epoch}:%{version}-%{release}
+Requires:         python%{pyver}-%{service} = %{epoch}:%{version}-%{release}
 
 %{?systemd_requires}
 BuildRequires:    systemd
 
 Requires(pre):    shadow-utils
-Requires:         python-pbr >= 2.0.0
+Requires:         python%{pyver}-pbr >= 2.0.0
 
 %description common
 %{common_desc}
@@ -95,7 +112,7 @@ Summary:          OpenStack %{service} guest agent
 %if 0%{?rhel}
 Requires:         pexpect
 %else
-Requires:         python-pexpect
+Requires:         python%{pyver}-pexpect
 %endif
 
 Requires:         %{name}-common = %{epoch}:%{version}-%{release}
@@ -107,73 +124,87 @@ This package contains the %{service} guest agent service
 that runs within the database VM instance.
 
 
-%package -n       python-%{service}
+%package -n       python%{pyver}-%{service}
 Summary:          Python libraries for %{service}
+%{?python_provide:%python_provide python%{pyver}-%{service}}
 
 Requires:         MySQL-python
 
-Requires:         python2-kombu
+Requires:         python%{pyver}-kombu
 
-Requires:         python2-cryptography >= 2.1.4
+Requires:         python%{pyver}-cryptography >= 2.1.4
+Requires:         python%{pyver}-eventlet
+Requires:         python%{pyver}-iso8601
+Requires:         python%{pyver}-netaddr
+Requires:         python%{pyver}-six >= 1.10.0
+Requires:         python%{pyver}-stevedore >= 1.20.0
+Requires:         python%{pyver}-xmltodict >= 0.10.1
+
+Requires:         python%{pyver}-webob >= 1.7.1
+
+Requires:         python%{pyver}-sqlalchemy >= 1.2.0
+Requires:         python%{pyver}-routes
+
+Requires:         python%{pyver}-troveclient
+Requires:         python%{pyver}-cinderclient >= 3.3.0
+Requires:         python%{pyver}-designateclient >= 2.7.0
+Requires:         python%{pyver}-glanceclient >= 1:2.8.0
+Requires:         python%{pyver}-heatclient >= 1.10.0
+Requires:         python%{pyver}-keystoneclient >= 1:3.8.0
+Requires:         python%{pyver}-keystonemiddleware >= 4.17.0
+Requires:         python%{pyver}-neutronclient >= 6.7.0
+Requires:         python%{pyver}-novaclient >= 1:9.1.0
+Requires:         python%{pyver}-swiftclient >= 3.2.0
+
+Requires:         python%{pyver}-oslo-concurrency >= 3.26.0
+Requires:         python%{pyver}-oslo-config >= 2:5.2.0
+Requires:         python%{pyver}-oslo-context >= 2.19.2
+Requires:         python%{pyver}-oslo-db >= 4.27.0
+Requires:         python%{pyver}-oslo-i18n >= 3.15.3
+Requires:         python%{pyver}-oslo-log >= 3.36.0
+Requires:         python%{pyver}-oslo-messaging >= 5.29.0
+Requires:         python%{pyver}-oslo-middleware >= 3.31.0
+Requires:         python%{pyver}-oslo-policy >= 1.30.0
+Requires:         python%{pyver}-oslo-serialization >= 2.18.0
+Requires:         python%{pyver}-oslo-service >= 1.24.0
+Requires:         python%{pyver}-oslo-utils >= 3.33.0
+
+Requires:         python%{pyver}-osprofiler >= 1.4.0
+Requires:         python%{pyver}-jsonschema
+Requires:         python%{pyver}-babel
+Requires:         python%{pyver}-jinja2
+
+Requires:         python%{pyver}-passlib
+
+# Handle python2 exception
+%if %{pyver} == 2
+Requires:         python-pexpect
 Requires:         python-enum34
-Requires:         python2-eventlet
-Requires:         python2-iso8601
-Requires:         python2-netaddr
 Requires:         python-lxml
-Requires:         python2-six >= 1.10.0
-Requires:         python2-stevedore >= 1.20.0
-Requires:         python2-xmltodict >= 0.10.1
-
-Requires:         python-webob >= 1.7.1
 Requires:         python-migrate >= 0.11.0
-
-Requires:         python2-sqlalchemy >= 1.2.0
 Requires:         python-paste
 Requires:         python-paste-deploy
-Requires:         python2-routes
-
-Requires:         python2-troveclient
-Requires:         python2-cinderclient >= 3.3.0
-Requires:         python2-designateclient >= 2.7.0
-Requires:         python2-glanceclient >= 1:2.8.0
-Requires:         python2-heatclient >= 1.10.0
-Requires:         python2-keystoneclient >= 1:3.8.0
-Requires:         python2-keystonemiddleware >= 4.17.0
-Requires:         python2-neutronclient >= 6.7.0
-Requires:         python2-novaclient >= 1:9.1.0
-Requires:         python2-swiftclient >= 3.2.0
-
-Requires:         python2-oslo-concurrency >= 3.26.0
-Requires:         python2-oslo-config >= 2:5.2.0
-Requires:         python2-oslo-context >= 2.19.2
-Requires:         python2-oslo-db >= 4.27.0
-Requires:         python2-oslo-i18n >= 3.15.3
-Requires:         python2-oslo-log >= 3.36.0
-Requires:         python2-oslo-messaging >= 5.29.0
-Requires:         python2-oslo-middleware >= 3.31.0
-Requires:         python2-oslo-policy >= 1.30.0
-Requires:         python2-oslo-serialization >= 2.18.0
-Requires:         python2-oslo-service >= 1.24.0
-Requires:         python2-oslo-utils >= 3.33.0
-
-Requires:         python2-osprofiler >= 1.4.0
-Requires:         python2-jsonschema
-Requires:         python2-babel
-Requires:         python2-jinja2
-
 Requires:         python-httplib2
-Requires:         python2-passlib
+%else
+Requires:         python%{pyver}-pexpect
+Requires:         python%{pyver}-lxml
+Requires:         python%{pyver}-migrate >= 0.11.0
+Requires:         python%{pyver}-paste
+Requires:         python%{pyver}-paste-deploy
+Requires:         python%{pyver}-httplib2
+%endif
 
-%description -n   python-%{service}
+%description -n   python%{pyver}-%{service}
 %{common_desc}
 
 This package contains the %{service} python library.
 
-%package -n python-%{service}-tests
+%package -n python%{pyver}-%{service}-tests
 Summary:        Trove tests
-Requires:       python-%{service} = %{epoch}:%{version}-%{release}
+%{?python_provide:%python_provide python%{pyver}-%{service}-tests}
+Requires:       python%{pyver}-%{service} = %{epoch}:%{version}-%{release}
 
-%description -n python-%{service}-tests
+%description -n python%{pyver}-%{service}-tests
 %{common_desc}
 
 This package contains the Trove test files
@@ -208,24 +239,24 @@ done
 %py_req_cleanup
 
 %build
-%{__python2} setup.py build
+%{pyver_build}
 
 %install
-%{__python2} setup.py install -O1 --skip-build --root %{buildroot}
+%{pyver_install}
 
 # docs generation requires everything to be installed first
 
 %if 0%{?with_doc}
 pushd doc
 
-SPHINX_DEBUG=1 sphinx-build -b html source build/html
+SPHINX_DEBUG=1 sphinx-build-%{pyver} -b html source build/html
 # Fix hidden-file-or-dir warnings
 rm -fr build/html/.doctrees build/html/.buildinfo
 
-# Create dir link to avoid a sphinx-build exception
+# Create dir link to avoid a sphinx-build-%{pyver} exception
 mkdir -p build/man/.doctrees/
 ln -s .  build/man/.doctrees/man
-SPHINX_DEBUG=1 sphinx-build -b man -c source source/man build/man
+SPHINX_DEBUG=1 sphinx-build-%{pyver} -b man -c source source/man build/man
 mkdir -p %{buildroot}%{_mandir}/man1
 install -p -D -m 644 build/man/*.1 %{buildroot}%{_mandir}/man1/
 
@@ -354,15 +385,15 @@ exit 0
 %config(noreplace) %attr(0640, root, %{service}) %{_sysconfdir}/%{service}/%{service}-guestagent.conf
 %config(noreplace) %attr(0640, root, %{service}) %{_sysconfdir}/%{service}/guest_info
 
-%files -n python-%{service}
+%files -n python%{pyver}-%{service}
 %license LICENSE
-%{python2_sitelib}/%{service}
-%{python2_sitelib}/%{service}-%{version}*.egg-info
-%exclude %{python2_sitelib}/%{service}/tests
+%{pyver_sitelib}/%{service}
+%{pyver_sitelib}/%{service}-%{version}*.egg-info
+%exclude %{pyver_sitelib}/%{service}/tests
 
-%files -n python-%{service}-tests
+%files -n python%{pyver}-%{service}-tests
 %license LICENSE
-%{python2_sitelib}/%{service}/tests
+%{pyver_sitelib}/%{service}/tests
 
 %if 0%{?with_doc}
 %files doc
