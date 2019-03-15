@@ -128,7 +128,7 @@ that runs within the database VM instance.
 Summary:          Python libraries for %{service}
 %{?python_provide:%python_provide python%{pyver}-%{service}}
 
-Requires:         MySQL-python
+Requires:         python%{pyver}-PyMySQL >= 0.7.6
 
 Requires:         python%{pyver}-kombu
 
