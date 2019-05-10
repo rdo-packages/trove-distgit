@@ -6,7 +6,7 @@
 
 Name:             openstack-%{service}
 Epoch:            1
-Version:          8.0.0
+Version:          8.0.1
 Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
@@ -373,6 +373,9 @@ exit 0
 %endif
 
 %changelog
+* Fri May 10 2019 RDO <dev@lists.rdoproject.org> 1:8.0.1-1
+- Update to 8.0.1
+
 * Wed Aug 30 2017 rdo-trunk <javier.pena@redhat.com> 1:8.0.0-1
 - Update to 8.0.0
 
