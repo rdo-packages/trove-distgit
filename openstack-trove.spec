@@ -407,3 +407,4 @@ exit 0
 %endif
 
 %changelog
+# REMOVEME: error caused by commit http://git.openstack.org/cgit/openstack/trove/commit/?id=ba6e526c602bf9cf428cda41b64bf5a90f62a6a5
