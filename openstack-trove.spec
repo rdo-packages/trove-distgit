@@ -46,13 +46,6 @@ BuildRequires:    crudini
 BuildRequires:    intltool
 BuildRequires:    openstack-macros
 
-# Handle python2 exception
-%if %{pyver} == 2
-BuildRequires:    python-d2to1
-%else
-BuildRequires:    python%{pyver}-d2to1
-%endif
-
 Requires:         %{name}-api = %{epoch}:%{version}-%{release}
 Requires:         %{name}-taskmanager = %{epoch}:%{version}-%{release}
 Requires:         %{name}-conductor = %{epoch}:%{version}-%{release}
