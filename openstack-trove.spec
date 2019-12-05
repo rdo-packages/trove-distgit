@@ -102,7 +102,7 @@ This package contains the %{service} conductor service.
 
 %package guestagent
 Summary:          OpenStack %{service} guest agent
-%if 0%{?rhel}
+%if %{pyver} == 2
 Requires:         pexpect
 %else
 Requires:         python%{pyver}-pexpect
