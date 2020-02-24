@@ -5,9 +5,9 @@
 %global pyver 2
 %endif
 %global pyver_bin python%{pyver}
-%global pyver_sitelib %python%{pyver}_sitelib
-%global pyver_install %py%{pyver}_install
-%global pyver_build %py%{pyver}_build
+%global pyver_sitelib %{expand:%{python%{pyver}_sitelib}}
+%global pyver_install %{expand:%{py%{pyver}_install}}
+%global pyver_build %{expand:%{py%{pyver}_build}}
 # End of macros for py2/py3 compatibility
 %global release_name mitaka
 %global service trove
@@ -303,7 +303,7 @@ install -d -m 755 %{buildroot}%{_localstatedir}/run/%{service}
 
 # Remove unneeded in production stuff
 rm -fr %{buildroot}%{_bindir}/trove-fake-mode
-rm -fr %{buildroot}%{python_sitelib}/run_tests.*
+rm -fr %{buildroot}%{pyver_sitelib}/run_tests.*
 %pre common
 # Origin: http://fedoraproject.org/wiki/Packaging:UsersAndGroups#Dynamic_allocation
 USERNAME=%{service}
