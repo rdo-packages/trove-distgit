@@ -410,4 +410,3 @@ exit 0
 
 * Mon Sep 30 2019 RDO <dev@lists.rdoproject.org> 1:12.0.0-0.1.0rc1
 - Update to 12.0.0.0rc1
-
