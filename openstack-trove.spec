@@ -28,10 +28,12 @@ BuildArch:        noarch
 BuildRequires:    python3-devel
 BuildRequires:    python3-setuptools
 BuildRequires:    python3-pbr >= 2.0.0
-BuildRequires:    python3-sphinx
 BuildRequires:    crudini
 BuildRequires:    intltool
 BuildRequires:    openstack-macros
+
+# To build default config files
+BuildRequires:    python3-oslo-config
 
 Requires:         %{name}-api = %{epoch}:%{version}-%{release}
 Requires:         %{name}-taskmanager = %{epoch}:%{version}-%{release}
@@ -181,6 +183,7 @@ This package contains the Trove test files
 %package doc
 Summary:          Documentation for OpenStack %{service}
 
+BuildRequires:    python3-sphinx
 
 %description      doc
 %{common_desc}
@@ -231,6 +234,10 @@ install -p -D -m 644 build/man/*.1 %{buildroot}%{_mandir}/man1/
 popd
 %endif
 
+# Create config file
+
+oslo-config-generator --namespace trove.config --namespace oslo.messaging --namespace oslo.log --namespace oslo.log oslo.policy --output-file etc/%{service}/%{service}.conf.sample
+
 # Setup directories
 %if 0%{?rhel} != 6
 install -d -m 755 %{buildroot}%{_unitdir}
@@ -251,9 +258,10 @@ install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
 # FIXME(jpena): Trove has officially removed trove-conductor.conf
 # and trove-taskmanager.conf. We should stop creating them once
 # the deployment tools have been updated.
+# Options for trove-guestagent.conf are the same as trove.conf
 install -p -D -m 640 etc/%{service}/%{service}.conf.sample  %{buildroot}%{_sysconfdir}/%{service}/trove-taskmanager.conf
 install -p -D -m 640 etc/%{service}/%{service}.conf.sample  %{buildroot}%{_sysconfdir}/%{service}/trove-conductor.conf
-install -p -D -m 640 etc/%{service}/trove-guestagent.conf.sample %{buildroot}%{_sysconfdir}/%{service}/trove-guestagent.conf
+install -p -D -m 640 etc/%{service}/%{service}.conf.sample %{buildroot}%{_sysconfdir}/%{service}/trove-guestagent.conf
 install -p -D -m 640 %{SOURCE2} %{buildroot}%{_sysconfdir}/%{service}/guest_info
 
 # Install initscripts
