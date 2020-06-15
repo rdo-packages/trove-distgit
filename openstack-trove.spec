@@ -19,7 +19,7 @@
 
 Name:             openstack-%{service}
 Epoch:            1
-Version:          12.0.0
+Version:          12.1.0
 Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
@@ -402,6 +402,9 @@ exit 0
 %endif
 
 %changelog
+* Mon Jun 15 2020 RDO <dev@lists.rdoproject.org> 1:12.1.0-1
+- Update to 12.1.0
+
 * Wed Oct 16 2019 RDO <dev@lists.rdoproject.org> 1:12.0.0-1
 - Update to 12.0.0
 
