@@ -159,7 +159,6 @@ Requires:         python3-oslo-utils >= 3.33.0
 
 Requires:         python3-osprofiler >= 1.4.0
 Requires:         python3-jsonschema
-Requires:         python3-babel
 Requires:         python3-jinja2
 
 Requires:         python3-passlib
@@ -170,6 +169,8 @@ Requires:         python3-migrate >= 0.11.0
 Requires:         python3-paste
 Requires:         python3-paste-deploy
 Requires:         python3-httplib2
+Requires:         python3-psycopg2-binary >= 2.6.2
+Requires:         python3-docker >= 4.0.2
 
 %description -n   python3-%{service}
 %{common_desc}
