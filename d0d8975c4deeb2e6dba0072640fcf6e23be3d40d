@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "443cbea8_c9857000",
+        "filename": "openstack-trove.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 172,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2020-09-21T05:53:13Z",
+      "side": 1,
+      "message": "python3-psycopg2",
+      "range": {
+        "startLine": 172,
+        "startChar": 18,
+        "endLine": 172,
+        "endChar": 41
+      },
+      "revId": "d0d8975c4deeb2e6dba0072640fcf6e23be3d40d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
