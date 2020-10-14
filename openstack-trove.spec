@@ -1,4 +1,3 @@
-%global milestone .0rc2
 %global release_name mitaka
 %global service trove
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -10,14 +9,13 @@
 Name:             openstack-%{service}
 Epoch:            1
 Version:          14.0.0
-Release:          0.2%{?milestone}%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
 License:          ASL 2.0
 URL:              https://wiki.openstack.org/wiki/Trove
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
-# patches_base=14.0.0.0rc2
 
 Source1:          %{service}.logrotate
 Source2:          guest_info
@@ -394,6 +392,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Oct 14 2020 RDO <dev@lists.rdoproject.org> 1:14.0.0-1
+- Update to 14.0.0
+
 * Thu Oct 08 2020 RDO <dev@lists.rdoproject.org> 1:14.0.0-0.2.0rc1
 - Update to 14.0.0.0rc2
 
