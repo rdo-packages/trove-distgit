@@ -132,19 +132,18 @@ Requires:         python3-PyMySQL >= 0.7.6
 Requires:         python3-kombu
 
 Requires:         python3-cryptography >= 2.1.4
-Requires:         python3-eventlet
-Requires:         python3-iso8601
-Requires:         python3-netaddr
-Requires:         python3-six >= 1.10.0
+Requires:         python3-eventlet >= 0.18.2
+Requires:         python3-iso8601 >= 0.1.11
+Requires:         python3-netaddr >= 0.7.18
 Requires:         python3-stevedore >= 1.20.0
 Requires:         python3-xmltodict >= 0.10.1
 
 Requires:         python3-webob >= 1.7.1
 
-Requires:         python3-sqlalchemy >= 1.2.0
-Requires:         python3-routes
+Requires:         python3-sqlalchemy >= 1.0.10
+Requires:         python3-routes >= 2.3.1
 
-Requires:         python3-troveclient
+Requires:         python3-troveclient >= 2.2.0
 Requires:         python3-cinderclient >= 3.3.0
 Requires:         python3-designateclient >= 2.7.0
 Requires:         python3-glanceclient >= 1:2.8.0
@@ -156,33 +155,34 @@ Requires:         python3-novaclient >= 1:9.1.0
 Requires:         python3-swiftclient >= 3.2.0
 
 Requires:         python3-oslo-concurrency >= 3.26.0
-Requires:         python3-oslo-config >= 2:5.2.0
-Requires:         python3-oslo-context >= 2.19.2
+Requires:         python3-oslo-config >= 2:6.8.0
+Requires:         python3-oslo-context >= 2.22.0
 Requires:         python3-oslo-db >= 4.27.0
 Requires:         python3-oslo-i18n >= 3.15.3
 Requires:         python3-oslo-log >= 3.36.0
 Requires:         python3-oslo-messaging >= 5.29.0
 Requires:         python3-oslo-middleware >= 3.31.0
-Requires:         python3-oslo-policy >= 1.30.0
+Requires:         python3-oslo-policy >= 3.6.0
 Requires:         python3-oslo-serialization >= 2.18.0
 Requires:         python3-oslo-service >= 1.24.0
-Requires:         python3-oslo-upgradecheck >= 0.1.0
-Requires:         python3-oslo-utils >= 3.33.0
+Requires:         python3-oslo-upgradecheck >= 1.3.0
+Requires:         python3-oslo-utils >= 3.40.0
 
 Requires:         python3-osprofiler >= 1.4.0
-Requires:         python3-jsonschema
-Requires:         python3-jinja2
+Requires:         python3-jsonschema >= 3.2.0
+Requires:         python3-jinja2 >= 2.10
 
-Requires:         python3-passlib
+Requires:         python3-passlib >= 1.7.0
 
-Requires:         python3-pexpect
-Requires:         python3-lxml
+Requires:         python3-pexpect >= 3.1
+Requires:         python3-lxml >= 3.4.1
 Requires:         python3-migrate >= 0.11.0
-Requires:         python3-paste
-Requires:         python3-paste-deploy
-Requires:         python3-httplib2
+Requires:         python3-paste >= 2.0.2
+Requires:         python3-paste-deploy >= 1.5.0
+Requires:         python3-httplib2 >= 0.9.1
 Requires:         python3-psycopg2 >= 2.6.2
-Requires:         python3-docker >= 4.0.2
+Requires:         python3-docker >= 4.2.0
+Requires:         python3-semantic_version >= 2.6.0
 
 %description -n   python3-%{service}
 %{common_desc}
