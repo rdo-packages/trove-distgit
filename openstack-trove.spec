@@ -1,4 +1,3 @@
-%global milestone .0rc2
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0x5d2d1e4fb8d38e6af76c50d53d4fec30cf5ce3da
 %global release_name mitaka
@@ -12,14 +11,13 @@
 Name:             openstack-%{service}
 Epoch:            1
 Version:          15.0.0
-Release:          0.2%{?milestone}%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
 License:          ASL 2.0
 URL:              https://wiki.openstack.org/wiki/Trove
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
-# patches_base=15.0.0.0rc2
 
 Source1:          %{service}.logrotate
 Source2:          guest_info
@@ -410,6 +408,9 @@ exit 0
 %endif
 
 %changelog
+* Wed Apr 14 2021 RDO <dev@lists.rdoproject.org> 1:15.0.0-1
+- Update to 15.0.0
+
 * Fri Apr 09 2021 RDO <dev@lists.rdoproject.org> 1:15.0.0-0.2.0rc1
 - Update to 15.0.0.0rc2
 
