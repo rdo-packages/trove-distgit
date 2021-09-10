@@ -183,6 +183,8 @@ Requires:         python3-httplib2 >= 0.9.1
 Requires:         python3-psycopg2 >= 2.6.2
 Requires:         python3-docker >= 4.2.0
 Requires:         python3-semantic_version >= 2.6.0
+Requires:         diskimage-builder >= 1.1.2
+Requires:         python3-oslo-cache >= 1.26.0
 
 %description -n   python3-%{service}
 %{common_desc}
