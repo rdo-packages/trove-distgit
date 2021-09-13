@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "4d5a0b4a_d5d2dd5b",
+        "filename": "openstack-trove.spec",
+        "patchSetId": 1
+      },
+      "lineNbr": 186,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2021-09-13T07:24:44Z",
+      "side": 1,
+      "message": "actually disk image is not run time requirement for trove, it;s in requirements.txt for ci, so let\u0027s not add here",
+      "range": {
+        "startLine": 186,
+        "startChar": 0,
+        "endLine": 186,
+        "endChar": 44
+      },
+      "revId": "4975c536629321d489d9e694778b91a1616228e7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": true
+    }
+  ]
+}
