@@ -16,6 +16,23 @@
       "message": "[1] should fix it \n\nhttps://review.rdoproject.org/r/c/rdoinfo/+/39177",
       "revId": "34b4a3d66b063a85d0a01582694b4751e5efc3b9",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "83fb2e5a_7cd6fbb0",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-02-08T09:37:47Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "34b4a3d66b063a85d0a01582694b4751e5efc3b9",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
