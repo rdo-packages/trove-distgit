@@ -156,7 +156,7 @@ Requires:         python3-swiftclient >= 3.2.0
 
 Requires:         python3-oslo-concurrency >= 3.26.0
 Requires:         python3-oslo-config >= 2:6.8.0
-Requires:         python3-oslo-context >= 2.22.0
+Requires:         python3-oslo-context >= 4.0.0
 Requires:         python3-oslo-db >= 4.27.0
 Requires:         python3-oslo-i18n >= 3.15.3
 Requires:         python3-oslo-log >= 3.36.0
@@ -182,8 +182,9 @@ Requires:         python3-paste-deploy >= 1.5.0
 Requires:         python3-httplib2 >= 0.9.1
 Requires:         python3-psycopg2 >= 2.6.2
 Requires:         python3-docker >= 4.2.0
-Requires:         python3-semantic_version >= 2.6.0
+Requires:         python3-semantic_version >= 2.7.0
 Requires:         python3-oslo-cache >= 1.26.0
+Requires:         diskimage-builder >= 1.1.2
 
 %description -n   python3-%{service}
 %{common_desc}
