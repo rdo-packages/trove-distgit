@@ -16,6 +16,23 @@
       "message": "nothing provides diskimage-builder",
       "revId": "0d2286b817fdf272a104a466e1475dc348aa9fd6",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "984cc8fc_bc9911e1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2022-09-20T14:16:13Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "0d2286b817fdf272a104a466e1475dc348aa9fd6",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
