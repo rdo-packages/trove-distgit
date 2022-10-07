@@ -142,6 +142,7 @@ Requires:         python3-xmltodict >= 0.10.1
 Requires:         python3-webob >= 1.7.1
 
 Requires:         python3-sqlalchemy >= 1.0.10
+Requires:         python3-sqlalchemy < 1.4.0
 Requires:         python3-routes >= 2.3.1
 
 Requires:         python3-troveclient >= 2.2.0
