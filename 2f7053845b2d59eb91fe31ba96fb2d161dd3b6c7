@@ -16,6 +16,41 @@
       "message": "it\u0027s missing diskimage-builder",
       "revId": "2f7053845b2d59eb91fe31ba96fb2d161dd3b6c7",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "c26bf22f_e0a9164e",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-03-15T09:19:26Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "e4ca249f_3a0625bf",
+      "revId": "2f7053845b2d59eb91fe31ba96fb2d161dd3b6c7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "424f7e23_e58fdfe3",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-03-15T09:19:26Z",
+      "side": 1,
+      "message": "recheck",
+      "revId": "2f7053845b2d59eb91fe31ba96fb2d161dd3b6c7",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
