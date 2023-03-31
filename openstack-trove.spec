@@ -1,4 +1,3 @@
-%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
 %global sources_gpg_sign 0xa7475c5f2122fec3f90343223fe3bf5aad1080e4
 %global release_name mitaka
@@ -12,15 +11,13 @@
 Name:             openstack-%{service}
 Epoch:            1
 Version:          19.0.0
-Release:          0.1%{?milestone}%{?dist}
+Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
 License:          ASL 2.0
 URL:              https://wiki.openstack.org/wiki/Trove
 Source0:          https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz
 
-#
-# patches_base=19.0.0.0rc1
 #
 
 Source1:          %{service}.logrotate
@@ -415,6 +412,9 @@ exit 0
 %endif
 
 %changelog
+* Fri Mar 31 2023 RDO <dev@lists.rdoproject.org> 1:19.0.0-1
+- Update to 19.0.0
+
 * Tue Mar 14 2023 RDO <dev@lists.rdoproject.org> 1:19.0.0-0.1.0rc1
 - Update to 19.0.0.0rc1
 
