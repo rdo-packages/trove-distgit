@@ -366,6 +366,7 @@ exit 0
 %{_bindir}/%{service}-manage
 %{_bindir}/%{service}-status
 %{_bindir}/trove-mgmt-taskmanager
+%{_bindir}/trove-docker-plugin
 
 %{_datarootdir}/%{service}
 
