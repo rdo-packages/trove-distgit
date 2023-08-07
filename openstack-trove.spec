@@ -227,12 +227,7 @@ mv %{buildroot}%{_prefix}/etc/%{service}/api-paste.ini %{buildroot}%{_sysconfdir
 # Remove duplicate config files under /usr/etc/trove
 rmdir %{buildroot}%{_prefix}/etc/%{service}
 install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
-# FIXME(jpena): Trove has officially removed trove-conductor.conf
-# and trove-taskmanager.conf. We should stop creating them once
-# the deployment tools have been updated.
 # Options for trove-guestagent.conf are the same as trove.conf
-install -p -D -m 640 etc/%{service}/%{service}.conf.sample  %{buildroot}%{_sysconfdir}/%{service}/trove-taskmanager.conf
-install -p -D -m 640 etc/%{service}/%{service}.conf.sample  %{buildroot}%{_sysconfdir}/%{service}/trove-conductor.conf
 install -p -D -m 640 etc/%{service}/%{service}.conf.sample %{buildroot}%{_sysconfdir}/%{service}/trove-guestagent.conf
 install -p -D -m 640 %{SOURCE2} %{buildroot}%{_sysconfdir}/%{service}/guest_info
 
@@ -325,12 +320,10 @@ rm -f trove/tests/unittests/taskmanager/test_manager.py
 %files taskmanager
 %{_bindir}/%{service}-taskmanager
 %{_unitdir}/%{name}-taskmanager.service
-%config(noreplace) %attr(0640, root, %{service}) %{_sysconfdir}/%{service}/%{service}-taskmanager.conf
 
 %files conductor
 %{_bindir}/%{service}-conductor
 %{_unitdir}/%{name}-conductor.service
-%config(noreplace) %attr(0640, root, %{service}) %{_sysconfdir}/%{service}/%{service}-conductor.conf
 
 %files guestagent
 %{_bindir}/%{service}-guestagent
