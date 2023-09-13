@@ -1,9 +1,9 @@
 # UUID Group Name
 global:Registered-Users	Registered Users
 4572c517702492251ad622a289176552a8acbbb2	rdo-superusers
-5182884b051e3752480698a83ffb1a7119be3d73	openstack/trove-ptl
-05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
-401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
 global:Anonymous-Users	Anonymous Users
 d397b61e8eb899e8536615728569bfaaef6622a4	openstack/trove-core
+05a678d3d4a168e149d5e8a0063bbd1b1c5526da	Administrators
+401cf37bee35d1c809d4d957e55f2a304f8eed69	rdo-provenpackagers
+5182884b051e3752480698a83ffb1a7119be3d73	openstack/trove-ptl
 6ddfecad023c6f4fa3ac8c4d2583c502ea675a73	Service Users
