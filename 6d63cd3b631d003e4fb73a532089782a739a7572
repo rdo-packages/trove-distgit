@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "078b1f43_1296a6e7",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2024-03-14T16:15:20Z",
+      "side": 1,
+      "message": "compatibility issue with oslo.db wip https://review.opendev.org/c/openstack/trove/+/911388",
+      "revId": "6d63cd3b631d003e4fb73a532089782a739a7572",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
