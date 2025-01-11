@@ -4,7 +4,7 @@
 %global service trove
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
 # we are excluding some BRs from automatic generator
-%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order bashate astroid couchdb nosexcover openstack.nose-plugin os-api-ref proboscis pylint cassandra-driver
+%global excluded_brs doc8 bandit pre-commit hacking flake8-import-order bashate astroid os-api-ref pylint
 # Exclude sphinx from BRs if docs are disabled
 %if ! 0%{?with_doc}
 %global excluded_brs %{excluded_brs} sphinx openstackdocstheme
