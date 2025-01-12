@@ -206,11 +206,8 @@ popd
 
 # Create config file
 
-export PYTHONPATH="%{buildroot}/%{python3_sitelib}" 
-oslo-config-generator --namespace trove.config --namespace oslo.messaging --namespace oslo.log --namespace oslo.log --namespace oslo.policy --output-file etc/%{service}/%{service}.conf.sample
-
-# The automatic value of pybasedir is wrong and unneeded and makes build to fail
-sed -i "/#pybasedir.*/d" etc/%{service}/trove.conf.sample
+export PYTHONPATH="%{buildroot}/%{python3_sitelib}"
+oslo-config-generator --config-file=tools/trove-config-generator.conf
 
 # Setup directories
 install -d -m 755 %{buildroot}%{_unitdir}
@@ -230,6 +227,10 @@ install -d -m 755 %{buildroot}%{_sysconfdir}/%{service}
 # Options for trove-guestagent.conf are the same as trove.conf
 install -p -D -m 640 etc/%{service}/%{service}.conf.sample %{buildroot}%{_sysconfdir}/%{service}/trove-guestagent.conf
 install -p -D -m 640 %{SOURCE2} %{buildroot}%{_sysconfdir}/%{service}/guest_info
+
+# The automatic value of pybasedir is wrong and unneeded and makes build to fail
+sed -i "/#pybasedir.*/d" %{buildroot}%{_sysconfdir}/%{service}/%{service}.conf
+sed -i "/#pybasedir.*/d" %{buildroot}%{_sysconfdir}/%{service}/trove-guestagent.conf
 
 # Install initscripts
 install -p -m 644 %{SOURCE10} %{SOURCE11} %{SOURCE12} %{SOURCE13} %{buildroot}%{_unitdir}
