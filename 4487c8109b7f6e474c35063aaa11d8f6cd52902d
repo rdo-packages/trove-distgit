@@ -1,0 +1,8 @@
+Workflow+1: Karolina Kula <kkula@redhat.com>
+Code-Review+2: Karolina Kula <kkula@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Mon, 20 Jan 2025 16:26:43 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/openstack/trove-distgit/+/55906
+Project: openstack/trove-distgit
+Branch: refs/heads/rpm-master
