@@ -1,0 +1,164 @@
+From 6faae54d8cd8c457958cbedd81323e3d23569018 Mon Sep 17 00:00:00 2001
+From: Joel Capitao <jcapitao@redhat.com>
+Date: Mon, 20 Jan 2025 15:26:34 +0100
+Subject: [PATCH] Revert "[CI]: fix unittest failure"
+
+This reverts commit e9fa651ac0c06d16240ac597830020e75026b0e9.
+---
+ .../unittests/cluster/test_cluster_controller.py     |  2 +-
+ .../unittests/cluster/test_cluster_pxc_controller.py |  2 +-
+ .../cluster/test_cluster_redis_controller.py         |  2 +-
+ .../cluster/test_cluster_vertica_controller.py       |  2 +-
+ .../configuration/test_configuration_controller.py   |  2 +-
+ .../unittests/instance/test_instance_controller.py   |  4 ++--
+ trove/tests/unittests/mysql/test_user_controller.py  | 12 ++++++------
+ 7 files changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/trove/tests/unittests/cluster/test_cluster_controller.py b/trove/tests/unittests/cluster/test_cluster_controller.py
+index d0ab8113..1d745377 100644
+--- a/trove/tests/unittests/cluster/test_cluster_controller.py
++++ b/trove/tests/unittests/cluster/test_cluster_controller.py
+@@ -162,7 +162,7 @@ class TestClusterController(trove_testtools.TestCase):
+         error_messages = [error.message for error in errors]
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(2))
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("'' does not match '^.*[0-9a-zA-Z]+.*$'", error_messages)
+         self.assertIn("type", error_paths)
+ 
+diff --git a/trove/tests/unittests/cluster/test_cluster_pxc_controller.py b/trove/tests/unittests/cluster/test_cluster_pxc_controller.py
+index 109a115f..11d250c9 100644
+--- a/trove/tests/unittests/cluster/test_cluster_pxc_controller.py
++++ b/trove/tests/unittests/cluster/test_cluster_pxc_controller.py
+@@ -89,7 +89,7 @@ class TestClusterController(trove_testtools.TestCase):
+         error_messages = [error.message for error in errors]
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(2))
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("'' does not match '^.*[0-9a-zA-Z]+.*$'", error_messages)
+         self.assertIn("type", error_paths)
+ 
+diff --git a/trove/tests/unittests/cluster/test_cluster_redis_controller.py b/trove/tests/unittests/cluster/test_cluster_redis_controller.py
+index 88374878..2d8750c5 100644
+--- a/trove/tests/unittests/cluster/test_cluster_redis_controller.py
++++ b/trove/tests/unittests/cluster/test_cluster_redis_controller.py
+@@ -103,7 +103,7 @@ class TestClusterController(trove_testtools.TestCase):
+         error_messages = [error.message for error in errors]
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(2))
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("'' does not match '^.*[0-9a-zA-Z]+.*$'", error_messages)
+         self.assertIn("type", error_paths)
+ 
+diff --git a/trove/tests/unittests/cluster/test_cluster_vertica_controller.py b/trove/tests/unittests/cluster/test_cluster_vertica_controller.py
+index 97d374e6..15016f92 100644
+--- a/trove/tests/unittests/cluster/test_cluster_vertica_controller.py
++++ b/trove/tests/unittests/cluster/test_cluster_vertica_controller.py
+@@ -89,7 +89,7 @@ class TestClusterController(trove_testtools.TestCase):
+         error_messages = [error.message for error in errors]
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(2))
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("'' does not match '^.*[0-9a-zA-Z]+.*$'", error_messages)
+         self.assertIn("type", error_paths)
+ 
+diff --git a/trove/tests/unittests/configuration/test_configuration_controller.py b/trove/tests/unittests/configuration/test_configuration_controller.py
+index 4d1e41e2..4c239672 100644
+--- a/trove/tests/unittests/configuration/test_configuration_controller.py
++++ b/trove/tests/unittests/configuration/test_configuration_controller.py
+@@ -120,7 +120,7 @@ class TestConfigurationController(trove_testtools.TestCase):
+             self._test_validate_configuration_with_action(body,
+                                                           action='create',
+                                                           is_valid=False))
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+ 
+     def test_validate_edit_configuration(self):
+         body = {
+diff --git a/trove/tests/unittests/instance/test_instance_controller.py b/trove/tests/unittests/instance/test_instance_controller.py
+index 7d3becd5..a4def8fa 100644
+--- a/trove/tests/unittests/instance/test_instance_controller.py
++++ b/trove/tests/unittests/instance/test_instance_controller.py
+@@ -284,7 +284,7 @@ class TestInstanceController(trove_testtools.TestCase):
+         self.assertFalse(validator.is_valid(body))
+         errors = sorted(validator.iter_errors(body), key=lambda e: e.path)
+         self.verify_errors(errors[0].context,
+-                           ["'' should be non-empty",
++                           ["'' is too short",
+                             "'' does not match '^.*[0-9a-zA-Z]+.*$'",
+                             "'' is not of type 'integer'"],
+                            ["flavorRef", "flavorRef", "flavorRef",
+@@ -299,7 +299,7 @@ class TestInstanceController(trove_testtools.TestCase):
+         validator = jsonschema.Draft4Validator(schema)
+         self.assertFalse(validator.is_valid(body))
+         errors = sorted(validator.iter_errors(body), key=lambda e: e.path)
+-        self.verify_errors(errors, ["'' should be non-empty"], ["flavorRef"])
++        self.verify_errors(errors, ["'' is too short"], ["flavorRef"])
+ 
+     def _setup_modify_instance_mocks(self):
+         instance = Mock()
+diff --git a/trove/tests/unittests/mysql/test_user_controller.py b/trove/tests/unittests/mysql/test_user_controller.py
+index e15a83a7..ccc7baf7 100644
+--- a/trove/tests/unittests/mysql/test_user_controller.py
++++ b/trove/tests/unittests/mysql/test_user_controller.py
+@@ -62,7 +62,7 @@ class TestUserController(trove_testtools.TestCase):
+         error_messages = [error.message for error in errors]
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(2))
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("'' does not match '^.*[0-9a-zA-Z]+.*$'", error_messages)
+         self.assertIn("password", error_paths)
+ 
+@@ -86,7 +86,7 @@ class TestUserController(trove_testtools.TestCase):
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(3))
+         self.assertIn("'password' is a required property", error_messages)
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("'' does not match '^.*[0-9a-zA-Z]+.*$'", error_messages)
+         self.assertIn("name", error_paths)
+ 
+@@ -185,7 +185,7 @@ class TestUserController(trove_testtools.TestCase):
+         error_messages = [error.message for error in errors]
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(2))
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("'' does not match '^.*[0-9a-zA-Z]+.*$'", error_messages)
+         self.assertIn("password", error_paths)
+ 
+@@ -199,7 +199,7 @@ class TestUserController(trove_testtools.TestCase):
+         error_messages = [error.message for error in errors]
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(2))
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("'' does not match '^.*[0-9a-zA-Z]+.*$'", error_messages)
+         self.assertIn("password", error_paths)
+ 
+@@ -213,7 +213,7 @@ class TestUserController(trove_testtools.TestCase):
+         error_messages = [error.message for error in errors]
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(2))
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("password", error_paths)
+ 
+     def test_validate_update_no_password(self):
+@@ -252,7 +252,7 @@ class TestUserController(trove_testtools.TestCase):
+         error_paths = [error.path.pop() for error in errors]
+         self.assertThat(len(errors), Is(3))
+         self.assertIn("'password' is a required property", error_messages)
+-        self.assertIn("'' should be non-empty", error_messages)
++        self.assertIn("'' is too short", error_messages)
+         self.assertIn("'' does not match '^.*[0-9a-zA-Z]+.*$'", error_messages)
+         self.assertIn("name", error_paths)
+ 
+-- 
+2.47.1
+
