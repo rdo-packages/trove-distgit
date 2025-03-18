@@ -1,5 +1,6 @@
+%global milestone .0rc1
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0x2426b928085a020d8a90d0d879ab7008d0896c8a
+%global sources_gpg_sign 0x22284f69d9eccdf3df7819791c711af193ff8e54
 %global release_name mitaka
 %global service trove
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -16,8 +17,8 @@
 
 Name:             openstack-%{service}
 Epoch:            1
-Version:          XXX
-Release:          XXX
+Version:          23.0.0
+Release:          0.1%{?milestone}%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
 License:          Apache-2.0
@@ -36,6 +37,9 @@ Source13:         %{name}-guestagent.service
 Source101:        https://tarballs.openstack.org/%{service}/%{service}-%{upstream_version}.tar.gz.asc
 Source102:        https://releases.openstack.org/_static/%{sources_gpg_sign}.txt
 %endif
+#
+# patches_base=23.0.0.0rc1
+#
 Patch0001:        0001-Revert-CI-fix-unittest-failure.patch
 
 BuildArch:        noarch
@@ -351,3 +355,6 @@ rm -f trove/tests/unittests/taskmanager/test_manager.py
 %endif
 
 %changelog
+* Tue Mar 18 2025 RDO <dev@lists.rdoproject.org> 1:23.0.0-0.1.0rc1
+- Update to 23.0.0.0rc1
+
