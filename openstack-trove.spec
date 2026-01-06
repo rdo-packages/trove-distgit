@@ -360,3 +360,4 @@ rm -f trove/tests/unittests/taskmanager/test_manager.py
 * Tue Mar 18 2025 RDO <dev@lists.rdoproject.org> 1:23.0.0-0.1.0rc1
 - Update to 23.0.0.0rc1
 
+# REMOVEME: error caused by commit https://opendev.org/openstack/trove/commit/5340fbf554bd90b1a83cc959d35bd412807238ad
