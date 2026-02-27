@@ -351,3 +351,4 @@ rm -f trove/tests/unittests/taskmanager/test_manager.py
 %endif
 
 %changelog
+# REMOVEME: error caused by commit https://opendev.org/openstack/trove/commit/0fa5d5e9f243a8cd3751f25f61cdb31bad07e632
