@@ -1,5 +1,5 @@
 %{!?sources_gpg: %{!?dlrn:%global sources_gpg 1} }
-%global sources_gpg_sign 0xf8675126e2411e7748dd46662fc2093e4682645f
+%global sources_gpg_sign 0x22284f69d9eccdf3df7819791c711af193ff8e54
 %global release_name mitaka
 %global service trove
 %{!?upstream_version: %global upstream_version %{version}%{?milestone}}
@@ -16,7 +16,7 @@
 
 Name:             openstack-%{service}
 Epoch:            1
-Version:          22.0.0
+Version:          22.0.1
 Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
@@ -351,6 +351,9 @@ rm -f trove/tests/unittests/taskmanager/test_manager.py
 %endif
 
 %changelog
+* Tue Mar 03 2026 RDO <dev@lists.rdoproject.org> 1:22.0.1-1
+- Update to 22.0.1
+
 * Wed Oct 02 2024 RDO <dev@lists.rdoproject.org> 1:22.0.0-1
 - Update to 22.0.0
 
