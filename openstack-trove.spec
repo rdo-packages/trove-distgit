@@ -16,7 +16,7 @@
 
 Name:             openstack-%{service}
 Epoch:            1
-Version:          23.0.0
+Version:          23.1.0
 Release:          1%{?dist}
 Summary:          OpenStack DBaaS (%{service})
 
@@ -351,6 +351,9 @@ rm -f trove/tests/unittests/taskmanager/test_manager.py
 %endif
 
 %changelog
+* Tue Jul 21 2026 RDO <dev@lists.rdoproject.org> 1:23.1.0-1
+- Update to 23.1.0
+
 * Wed Apr 02 2025 RDO <dev@lists.rdoproject.org> 1:23.0.0-1
 - Update to 23.0.0
 
